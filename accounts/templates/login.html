@@ -1,0 +1,9 @@
+<form method="POST">
+    {% csrf_token %}
+    <input name="username"><br>
+    <input name="password"><br>
+    <button type="submit">login</button>
+</form>
+<a href="{% url 'register_owner' %}">회원가입(점주)</a>
+<a href="{% url 'register_customer' %}">회원가입(고객)</a>
+
