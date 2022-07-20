@@ -12,3 +12,4 @@ class ProfileAdmin(admin.ModelAdmin):
     list_filter = ['belong']
 admin.site.register(Profile, ProfileAdmin)
 
+

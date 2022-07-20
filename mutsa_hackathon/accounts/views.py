@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
-from .models import User_owner, User_customer, Profile
+from .models import Profile, Owner, Customer
 
 def register_owner(request):
     if request.method == 'POST':
@@ -15,6 +15,7 @@ def register_owner(request):
             belong = 0
             user_owner = Profile(user=user, name=name, number=number, belong=belong)
             user_owner.save()
+            Owner.id = request.user.profile
             auth.login(request,user)
             return redirect('home')
     return render(request, 'register_owner.html') 
