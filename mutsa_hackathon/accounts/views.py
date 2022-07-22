@@ -35,22 +35,34 @@ def register_customer(request):
             return redirect('home')
     return render(request, 'register_customer.html') 
 
+
+
 def login(request):
-    print(request.method);
     if request.method == 'POST':
         
         userid = request.POST['username']
         userpwd = request.POST['password']
+        userType = request.POST['type']
+        print(request.POST)
         user = auth.authenticate(request, username = userid, password = userpwd)
-        if user is not None:
-            auth.login(request,user)
-            return redirect('login.html',{"isLogin":"true"})
+        if userid=="admin@admin.com" and userpwd=="1234":
+            #auth.login(request,user)
+            if userType=="customer":
+                return redirect('signin')
+            return redirect('signIn.html');
         else : 
             print("here") 
             return render(request, 'login.html',{'isLogin': "false"})
 
     else:
         return render(request, 'login.html') 
+
+def signUp(request):
+    if request.method == 'POST':
+        return render(request, 'login.html',{'isLogin': "false"})
+    else:
+        return render(request, 'signup.html')
+
 
 def logout(request):
     auth.logout(request)
