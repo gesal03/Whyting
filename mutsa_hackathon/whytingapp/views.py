@@ -7,6 +7,8 @@ def home(request):
     stores = Store.objects.all()
     return render(request, 'index.html', {'stores':stores})
 
+# Seat, Time 객체 생성
+
 def newstore(request):
     # 하나의 modelform 을 여러번 쓸 수 있음. 모델, 모델폼, 몇 개의 폼을 띄울건지 갯수 
     ImageFormSet = modelformset_factory(Image,form=ImageForm, extra=5)
