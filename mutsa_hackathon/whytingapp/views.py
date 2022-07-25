@@ -1,12 +1,10 @@
-from django.shortcuts import redirect, render
-from django.forms import modelformset_factory
-from .models import Image, Store
-from .forms import StoreForm, ImageForm
+from django.shortcuts import render
 
 def home(request):
-    stores = Store.objects.all()
-    return render(request, 'index.html', {'stores':stores})
+    return render(request, 'index.html')
 
+
+<<<<<<< HEAD
 # Seat, Time 객체 생성
 
 def newstore(request):
@@ -44,3 +42,5 @@ def newstore(request):
     
     return render(request, 'newstore.html',
                   {'storeForm': StoreForm, 'formset': formset})
+=======
+>>>>>>> 0c4514649b991af24cb4505abb93dca13d376e44
