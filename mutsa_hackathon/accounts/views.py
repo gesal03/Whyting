@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
-from .models import Profile
+# from .models import User_owner, User_customer, Profile
 
 def register_owner(request):
     if request.method == 'POST':
@@ -35,29 +35,36 @@ def register_customer(request):
             return redirect('home')
     return render(request, 'register_customer.html') 
 
+
+
 def login(request):
     if request.method == 'POST':
+        
         userid = request.POST['username']
         userpwd = request.POST['password']
+        userType = request.POST['type']
+        print(request.POST)
         user = auth.authenticate(request, username = userid, password = userpwd)
-        if user is not None:
-            auth.login(request,user)
-            return redirect('home')
+        if userid=="admin@admin.com" and userpwd=="1234":
+            #auth.login(request,user)
+            if userType=="customer":
+                return redirect('signin')
+            return redirect('signIn.html');
+        else : 
+            print("here") 
+            return render(request, 'login.html',{'isLogin': "false"})
+
     else:
         return render(request, 'login.html') 
+
+def signUp(request):
+    if request.method == 'POST':
+        return render(request, 'login.html',{'isLogin': "false"})
+    else:
+        return render(request, 'signup.html')
+
 
 def logout(request):
     auth.logout(request)
     return redirect('home')
-
-def divide(request, user_id):
-    if request.user.profile.belong == 1:
-        return redirect('home')
-
-    elif request.user.profile.belong == 0:
-        user = User.objects.get(pk = user_id)
-        owner = Owner()
-        owner.id = user
-        owner.save()
-        return redirect('home')
     
