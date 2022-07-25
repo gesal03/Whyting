@@ -19,7 +19,7 @@ def newstore(request):
         if storeForm.is_valid() and formset.is_valid():
             store_form = storeForm.save(commit=False)
             # storeform user 에 현재 요청된 user 를 담아서 
-            store_form.owner_id = request.user.profile.id
+            store_form.owner_id = request.user.owner.id
             # 저장. 이 작업 안하면 user null error
             store_form.save()
             # 유효성 검사가 왼료된 formset 정리된 데이터 모음

@@ -15,9 +15,10 @@ class Profile(models.Model):
 
 class Owner(models.Model):
     owner_id = models.AutoField(primary_key = True, verbose_name='Primary Key')
-    id = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    id = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 class Customer(models.Model):
     customer_id = models.AutoField(primary_key=True, verbose_name='Primary Key')
-    id = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    id = models.ForeignKey(User, on_delete=models.CASCADE)
 
