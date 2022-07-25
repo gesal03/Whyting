@@ -1,6 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-<<<<<<< HEAD
+
 class Store(models.Model):
     id= models.AutoField(primary_key=True, verbose_name='Primary Key')
     name = models.CharField(max_length=30, verbose_name='가게 이름')
@@ -32,5 +33,3 @@ class Time(models.Model):
 class Image(models.Model):
     store_id = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='store_image')
     image = models.ImageField(blank=True, null=True, upload_to = 'store_image')
-=======
->>>>>>> 0c4514649b991af24cb4505abb93dca13d376e44

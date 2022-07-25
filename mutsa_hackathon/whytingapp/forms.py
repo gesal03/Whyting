@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from .models import Store, Image
@@ -25,6 +24,3 @@ class ImageForm(forms.ModelForm):
             'image': _('가게 사진'),
             
         }
-=======
-from django import forms
->>>>>>> 0c4514649b991af24cb4505abb93dca13d376e44

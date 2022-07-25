@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
+
+from models import Profile
 # from .models import User_owner, User_customer, Profile
 
 def register_owner(request):

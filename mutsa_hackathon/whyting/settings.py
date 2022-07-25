@@ -27,11 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'whytingapp.apps.WhytingappConfig',
     'accounts.apps.AccountsConfig',
-<<<<<<< HEAD
     'bookapp',
-=======
     'whyting'
->>>>>>> 0c4514649b991af24cb4505abb93dca13d376e44
 ]
 
 MIDDLEWARE = [
