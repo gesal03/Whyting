@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import Owner
+from django.contrib.auth.models import User
 
 class Store(models.Model):
     id= models.AutoField(primary_key=True, verbose_name='Primary Key')
@@ -7,8 +7,8 @@ class Store(models.Model):
     introduction = models.TextField(verbose_name='가게 설명')
     address = models.CharField(max_length=30, verbose_name='가게 주소')
     number = models.CharField(max_length=30, verbose_name='가게 전화번호')
-    waiting_state = models.IntegerField(default='1')
-    owner_id = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner')
+    waiting_state = models.IntegerField(default=1)
+    owner_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
     """
     store_time
     store_seat

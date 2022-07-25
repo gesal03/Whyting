@@ -1,3 +1,12 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 <h1>home</h1><br>
 
 {% if user.is_authenticated %}
@@ -10,5 +19,22 @@
 {% else %}
 <a href="{% url 'login' %}">로그인하세요</a>
 {% endif %}
-<a href="{% url 'newstore' %}">Create Store</a><br />
-<a href="{% url 'divide' {{ user.profile.id }} %}">divide</a><br />
+
+
+<body>
+    <a href="{% url 'newstore' %}">Create Post</a><br />
+
+    {% for store in stores %}
+        {{store.name}}<br />
+        {{store.adress}}<br />
+        {% if store.image %}
+            {% for i in store.image.all %}
+            <img src="{{i.image.url}}" /><br />
+
+            {% endfor %}
+        <hr />
+        {% endif %}
+    {% endfor %}
+ 
+</body>
+</html>

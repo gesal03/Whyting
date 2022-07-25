@@ -1,10 +1,11 @@
 from django.shortcuts import redirect, render
 from django.forms import modelformset_factory
-from .models import Image
+from .models import Image, Store
 from .forms import StoreForm, ImageForm
 
 def home(request):
-    return render(request, 'index.html')
+    stores = Store.objects.all()
+    return render(request, 'index.html', {'stores':stores})
 
 def newstore(request):
     # 하나의 modelform 을 여러번 쓸 수 있음. 모델, 모델폼, 몇 개의 폼을 띄울건지 갯수 
@@ -19,7 +20,7 @@ def newstore(request):
         if storeForm.is_valid() and formset.is_valid():
             store_form = storeForm.save(commit=False)
             # storeform user 에 현재 요청된 user 를 담아서 
-            store_form.owner_id = request.user.owner.id
+            store_form.owner_id = request.user
             # 저장. 이 작업 안하면 user null error
             store_form.save()
             # 유효성 검사가 왼료된 formset 정리된 데이터 모음
