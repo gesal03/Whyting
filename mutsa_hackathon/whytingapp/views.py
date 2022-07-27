@@ -1,10 +1,14 @@
 from django.forms import modelform_factory
 from django.shortcuts import redirect, render
-from forms import ImageForm, StoreForm
-from models import Image
+from .forms import ImageForm, StoreForm
+from .models import Store, Image
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'mainPage.html')
+
+def map(request):
+    all_store = Store.objects.all()
+    return render(request, "map.html", {'all_store': all_store})
 
 # Seat, Time 객체 생성
 

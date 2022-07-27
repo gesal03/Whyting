@@ -31,56 +31,20 @@
     </div>
     <div id="divList">
         <ul id="restaurantList">
+            {% for store in all_store %}
             <li>
                 <div style="position: relative;">
-                    <img id="rstImg" src="../../whyting/static/images/KakaoTalk_Photo_2022-07-22-00-29-58 001.jpeg">
+                    {% for i in store.store_image.all %}
+                    <img id="rstImg" src="{{i.image.url}}">
+                    {% endfor %}
                     <div id="divRst">
-                        <p id="rstName">가게이름</p>
-                        <p id="rstIntro">가게설명 어쩌구 저쩌구</p>
-                        <p id="rstEtc">기타정보 리뷰 댓글 등</p>
+                        <p id="rstName">{{store.name}}</p>
+                        <p id="rstIntro">{{store.introduction}}</p>
+                        <p id="rstEtc">웨이팅 상황: {{store.waiting_state}}</p>
                     </div>
                 </div>
             </li>
-            <li>
-                <div style="position: relative;">
-                    <img id="rstImg" src="../../whyting/static/images/KakaoTalk_Photo_2022-07-22-00-29-58 001.jpeg">
-                    <div id="divRst">
-                        <p id="rstName">가게이름</p>
-                        <p id="rstIntro">가게설명 어쩌구 저쩌구</p>
-                        <p id="rstEtc">기타정보 리뷰 댓글 등</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img id="rstImg" src="../../whyting/static/images/KakaoTalk_Photo_2022-07-22-00-29-58 001.jpeg">
-                    <div id="divRst" style="position: relative;">
-                        <p id="rstName">가게이름</p>
-                        <p id="rstIntro">가게설명 어쩌구 저쩌구</p>
-                        <p id="rstEtc">기타정보 리뷰 댓글 등</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div style="position: relative;">
-                    <img id="rstImg" src="../../whyting/static/images/KakaoTalk_Photo_2022-07-22-00-29-58 001.jpeg">
-                    <div id="divRst">
-                        <p id="rstName">가게이름</p>
-                        <p id="rstIntro">가게설명 어쩌구 저쩌구</p>
-                        <p id="rstEtc">기타정보 리뷰 댓글 등</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div style="position: relative;">
-                    <img id="rstImg" src="../../whyting/static/images/KakaoTalk_Photo_2022-07-22-00-29-58 001.jpeg">
-                    <div id="divRst">
-                        <p id="rstName">가게이름</p>
-                        <p id="rstIntro">가게설명 어쩌구 저쩌구</p>
-                        <p id="rstEtc">기타정보 리뷰 댓글 등</p>
-                    </div>
-                </div>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </section>
