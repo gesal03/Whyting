@@ -45,6 +45,64 @@ body{
     background-color: white;
     float: left;
 }
+
+#reserveSection{
+    width: 487px;
+    height: 100%;
+    background-color: white;
+    float: left;
+    display:none;
+    overflow: scroll;
+}
+#reservationTable{
+    border-bottom: 1px solid whtie;
+    border-left: 1px solid whtie;
+    border-right: 1px solid whtie;
+}
+#infoSection{
+    margin-left:13%;
+    margin-top:5%;
+}
+#reviewSection{
+    font-size:20px;
+    margin-left:5%;
+    margin-top:5%;
+    height:40px;
+    border-bottom:2px dotted gray;
+}
+#reviews{
+    font-size: 20px;
+    font-weight:400;
+    height:130px;
+    text-align: center;
+    margin:3% 5%;
+}
+#seatSection{
+    display:none;
+}
+#menu{
+    margin-left:13%;
+    margin-top:4%;
+}
+#moreView{
+    height:60px;
+    text-align: center;
+    cursor:pointer;
+    background-color: lightgray;
+    color:white;
+    font-size:25px;
+    font-weight:500;
+}
+.infoSection{
+    width:25%;
+    height:100%;
+    font-size: 25px;
+    margin-left:20px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    cursor:pointer;
+}
 /* 로고 div*/
 #divLogo{
     height: 70px;
