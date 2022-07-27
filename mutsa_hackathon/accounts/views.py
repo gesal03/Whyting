@@ -51,7 +51,7 @@ def login(request):
             #auth.login(request,user)
             if userType=="customer":
                 return redirect('signin')
-            return redirect('signIn.html');
+            return redirect('signIn.html')
         else : 
             print("here") 
             return render(request, 'login.html',{'isLogin': "false"})
@@ -69,4 +69,3 @@ def signUp(request):
 def logout(request):
     auth.logout(request)
     return redirect('home')
-    

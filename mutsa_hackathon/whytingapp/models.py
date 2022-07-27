@@ -21,6 +21,8 @@ class Seat(models.Model):
     description=models.CharField(max_length=100, verbose_name='좌석 정보')
     name=models.CharField(max_length=30, verbose_name='카테고리 이름')
     store_id=models.ForeignKey(Store, on_delete=models.CASCADE, related_name='seat_store')
+    def __str__(self):
+        return self.name
 
 class SeatImage(models.Model):
     seat_id=models.ForeignKey(Seat, on_delete=models.CASCADE, related_name='seat_image')
@@ -29,6 +31,8 @@ class SeatImage(models.Model):
 class Time(models.Model):
     time=models.IntegerField
     store_id=models.ForeignKey(Store, on_delete=models.CASCADE, related_name='time_store')
+    def __str__(self):
+        return self.name
 
 class Image(models.Model):
     store_id = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='store_image')

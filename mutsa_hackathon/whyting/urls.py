@@ -15,7 +15,6 @@ urlpatterns = [
     path('logout/', accounts_views.logout, name='logout'),
     path('register_owner/', accounts_views.register_owner, name='register_owner'),
     path('register_customer/', accounts_views.register_customer, name='register_customer'),
-    path('divide/', accounts_views.divide, name='divide'),
 
     # reservation
     path('reservation/', book_views.book, name='book')

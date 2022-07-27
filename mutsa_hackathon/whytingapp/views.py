@@ -1,7 +1,7 @@
 from django.forms import modelform_factory
 from django.shortcuts import redirect, render
-from forms import ImageForm, StoreForm
-from models import Image
+from .forms import ImageForm, StoreForm
+from .models import Image
 
 def home(request):
     return render(request, 'index.html')
