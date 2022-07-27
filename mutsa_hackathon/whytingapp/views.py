@@ -8,7 +8,8 @@ def home(request):
 
 def map(request):
     all_store = Store.objects.all()
-    return render(request, "map.html", {'all_store': all_store})
+    keyword = request.POST.get('keyword')
+    return render(request, "map.html", {'all_store': all_store, 'keyword':keyword})
 
 # Seat, Time 객체 생성
 

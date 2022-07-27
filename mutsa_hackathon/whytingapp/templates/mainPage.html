@@ -10,16 +10,17 @@
 </head>
 <body>
     <section id="secTop">
-        <button id="btnProfile"><img src="../../whyting/static/images/profile_icon.png"></button>
+        <a id="btnProfile" href="{% url 'login'%}"><img src="../../whyting/static/images/profile.png"></a>
         <button id="btnMenu"><img src="../../whyting/static/images/menu_icon.png"></button>
     </section>
     <section>
         <div id="divLogo"><img src="../../whyting/static/images/logo_font.png"></div>
         <div id="divSearch">
-            <form action="{% url 'map' %}" method="GET">
+            <form action="{% url 'map' %}" method="POST">
                 <div id="searchBar">
+                    {% csrf_token %}
                     <button><img src="../../whyting/static/images/search_icon.png"></button>
-                    <input type="text" placeholder="검색" id="keyword">
+                    <input type="text" placeholder="검색" id="keyword" name="keyword">
                 </div>
             </form>
         </div>
