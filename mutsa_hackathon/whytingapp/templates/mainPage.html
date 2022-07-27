@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +16,12 @@
     <section>
         <div id="divLogo"><img src="../../whyting/static/images/logo_font.png"></div>
         <div id="divSearch">
-            <div id="searchBar">
-                <button><img src="../../whyting/static/images/search_icon.png"></button>
-                <input type="text" placeholder="검색">
-            </div>
+            <form action="{% url 'map' %}" method="GET">
+                <div id="searchBar">
+                    <button><img src="../../whyting/static/images/search_icon.png"></button>
+                    <input type="text" placeholder="검색" id="keyword">
+                </div>
+            </form>
         </div>
     </section>
 </body>
