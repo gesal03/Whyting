@@ -34,7 +34,7 @@
     <div id="divList">
         <ul id="restaurantList">
             {% for store in all_store %}
-            <li>
+            <li id="se" onclick="showReservationSection()" style="cursor:pointer;">
                 <div style="position: relative;">
                     {% for i in store.store_image.all %}
                     <img id="rstImg" src="{{i.image.url}}">
@@ -50,7 +50,86 @@
         </ul>
     </div>
 </section>
-    
+<!--가게 예약 섹션-->
+<section id="reserveSection">
+    <div>
+        <table style="width:100%">
+            <tr>
+                <td rowspan="3"><img src="../../whyting/static/images/cafe1.jpeg" style="width:100%;height:200px"></td>
+            </tr>
+            <tr>
+                <td><img src="../../whyting/static/images/cafe2.jpeg" style="width:100%;height:100px"></td>
+                <td><img src="../../whyting/static/images/cafe3.jpeg" style="width:100%;height:100px"></td>
+            </tr>
+            <tr>
+                <td><img src="../../whyting/static/images/cafe4.jpeg" style="width:100%;height:100px"></td>
+                <td><img src="../../whyting/static/images/cafe5.jpeg" style="width:100%;height:100px"></td>
+            </tr>
+        </table>
+        <div style="display:inline-block;vertical-align:top;height:100px">
+            <img src="../../whyting/static/images/empty_book_mark.png" style="width:70px;height:80px; margin-left: 5px;" id="bookMark" onclick="markChange();">
+        </div>
+        <div style="width:80%;display:inline-block;text-align: center;margin-top:20px">
+            <span style="font-size: 30px;">음식점 명</span>
+            <span>음식점 종류</span>
+            <br>
+            <span>4.5/5.0 / </span>
+            <span> 리뷰 349 / </span>
+            <span>평균 6,000</span>
+        </div>
+
+        <div style="width:100%;height:100px;border-top:1px solid black;border-bottom: 1px solid black;">
+            <div id="home" style="background-color:#FFEFD9" onclick="changeSection('home')" class="infoSection">홈</div> 
+            <div id="seat"  class="infoSection" onclick="changeSection('seat')" >좌석</div> 
+            <div id="reservation" class="infoSection" onclick="changeSection('reservation')" >예약</div> 
+        </div>
+        <div id="homeSection">
+            <div style="border-bottom:1px solid black;">
+                <div id="infoSection">
+                        서울 종로구 창경궁로 231 2층 일월일일
+                </div>
+                <div style="margin-left:16%">혜화역 4번 출구에서 328m</div>
+                <div id="infoSection">
+                    0507-1344-0887
+                </div>
+                <div id="infoSection">
+                    영업중
+                </div>
+                <div id="infoSection" style="color:#FFA133; margin-top:5%;margin-bottom:5%">
+                http://www.instargram.com//ioio.hh
+                </div>
+            </div>
+            <div style="margin-top:4%; margin-bottom: 5%;">
+                <div style="margin-left:5%;font-size: 20px;">메뉴</div>
+                <div id="menu">찰떡 아이스크림 ------------ 5,000</div>
+                <div id="menu">단호박 라떼 ------------ 6,500</div>
+                <div id="menu">바스크 치즈케이크 ------------ 5,000</div>
+                <div id="menu">아메리카노 ------------ 5,000</div>
+            </div>
+            <div id="moreView">
+                메뉴 더보기 +
+            </div>
+            <div id="reviewSection">
+                리뷰
+            </div>
+            <div id="reviews">
+                <div style="display:inline-block; width:60%;text-align: left;">
+                    이곳은 리뷰를 작성하는 공간입니다. 여러가지의 리뷰를 작성할 수 있습니다.<br>
+                    <span style="font-size:17px">작성자</span>
+                </div>
+                <div style="float:right; width:100px; height:100px; background-color:lightgray">
+                </div>
+            </div>
+            <div id="moreView">
+                리뷰 더보기 +
+            </div>
+        </div>
+        <div id="seatSection">
+            예약 섹션
+
+        </div>
+    </div>
+</section>
 <div id="map" style="width: auto;height:100%;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a95ed71a715d68f8b0178bf888d52bf&libraries=services"></script>
@@ -86,6 +165,50 @@ function  searchPlaces() {
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
     ps.keywordSearch( keyword, placesSearchCB); 
     
+}
+
+
+
+//예약 화면 출력 함수
+function showReservationSection(){
+    const info = document.getElementById("se");
+    const reserveSection = document.getElementById("reserveSection");
+    reserveSection.style.display='block';
+}
+
+kakao.maps.event.addListener(map,'drag',function(){
+    const reserveSection = document.getElementById("reserveSection");
+    reserveSection.style.display='none';
+})
+
+function markChange(){
+    const markImg = document.getElementById("bookMark");
+
+}
+
+function changeSection(sectionName){
+    const home  = document.getElementById('home');
+    const seat  = document.getElementById('seat');
+    const reservation  = document.getElementById('reservation');
+    const homeSection =document.getElementById('homeSection');
+    const seatSection = document.getElementById('seatSection');
+    if(sectionName === 'home'){
+        home.style.backgroundColor="#FFEFD9"
+        seat.style.backgroundColor="white"
+        reservation.style.backgroundColor="white"
+        homeSection.style.display='block'
+        seatSection.style.display='none'
+    }else if(sectionName === 'seat'){
+        seat.style.backgroundColor="#FFEFD9"
+        home.style.backgroundColor="white"
+        reservation.style.backgroundColor="white"
+        homeSection.style.display='none'
+        seatSection.style.display='block'
+    }else{
+        reservation.style.backgroundColor="#FFEFD9"
+        seat.style.backgroundColor="white"
+        home.style.backgroundColor="white"
+    }
 }
 
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
