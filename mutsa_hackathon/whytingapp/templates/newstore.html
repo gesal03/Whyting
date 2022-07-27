@@ -1,26 +1,23 @@
 <form id="storeform" method="POST" action="" enctype="multipart/form-data">
- 
     {% csrf_token %}
 
     <b>{{storeForm.name.label}}</b><br />
     {{storeForm.name}}<br />
 
+    <b> {{storeForm.introduction.label}}</b> <br />
+    {{storeForm.introduction}}<br />
 
-   <b> {{storeForm.introduction.label}}</b> <br />
-   {{storeForm.introduction}}<br />
+    <b>{{storeForm.address.label}}</b><br />
+    {{storeForm.address}}<br />
 
-   <b>{{storeForm.address.label}}</b><br />
-   {{storeForm.address}}<br />
+    <b>{{storeForm.number.label}}</b><br />
+    {{storeForm.number}}<br />
 
-   <b>{{storeForm.number.label}}</b><br />
-   {{storeForm.number}}<br />
+    <!-- starttime endtime 입력 받기-->
 
-
-    {{ formset.management_form }}
-    {% for form in formset %}
-        {{ form }}<br />
+    {{ formset.management_form }} {% for form in formset %} {{ form }}<br />
+    <!-- Seat 입력 받기 -->
     {% endfor %}
- 
- 
+
     <input type="submit" name="submit" value="Submit" />
 </form>

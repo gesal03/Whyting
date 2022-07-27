@@ -1,19 +1,14 @@
 from django.contrib import admin
+from .models import Profile
 from django.contrib.auth.models import User
 
 class UserAdmin(admin.ModelAdmin):
-    def number(self, obj):
-        return obj.profile.number
-
-    def name(self, obj):
-        return obj.profile.name
-
-    def belong(self, obj):
-        return obj.profile.belong
-    
-    list_display = ['name', 'username', 'id', 'number', 'belong']
+    list_display = ['username', 'password']
 admin.site.unregister(User)    
 admin.site.register(User, UserAdmin)
 
-
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'belong', 'number']
+    list_filter = ['belong']
+admin.site.register(Profile, ProfileAdmin)
 
