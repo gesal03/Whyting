@@ -6,6 +6,6 @@ class ReservForm(forms.ModelForm):
         model = Reservation
         fields = ('reservation_time','reservation_seat')
         labels = {
-            'reservation_time':_('예약 시간'),
-            'reservation_seat':_('예약 자리')
+            'reservation_time': _('예약 시간'),
+            'reservation_seat': _('예약 자리')
         }
