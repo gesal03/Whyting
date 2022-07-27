@@ -49,15 +49,3 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('home')
-
-def divide(request, user_id):
-    if request.user.profile.belong == 1:
-        return redirect('home')
-
-    elif request.user.profile.belong == 0:
-        user = User.objects.get(pk = user_id)
-        owner = Owner()
-        owner.id = user
-        owner.save()
-        return redirect('home')
-    
