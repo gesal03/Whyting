@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../whyting/static/css/mapStyle.css">
+    <script src='./../whyting/static/js/main.js'></script>
+
     <title>키워드로 장소검색하기</title>
 </head>
 
@@ -67,7 +69,7 @@
         <div style="display:inline-block;vertical-align:top;height:100px">
             <img src="../../whyting/static/images/empty_book_mark.png" style="width:70px;height:80px; margin-left: 5px;" id="bookMark" onclick="markChange();">
         </div>
-        <div style="width:80%;display:inline-block;text-align: center;margin-top:20px">
+        <div style="width:75%;display:inline-block;text-align: center;margin-top:20px">
             <span style="font-size: 30px;">음식점 명</span>
             <span>음식점 종류</span>
             <br>
@@ -76,8 +78,8 @@
             <span>평균 6,000</span>
         </div>
 
-        <div style="width:100%;height:100px;border-top:1px solid black;border-bottom: 1px solid black;">
-            <div id="home" style="background-color:#FFEFD9" onclick="changeSection('home')" class="infoSection">홈</div> 
+        <div style="width:100%;height:100px;border-top:1px solid black;border-bottom: 1px solid black;margin-top:30px;">
+            <div id="home" style="background-color:#FFEFD9;" onclick="changeSection('home')" class="infoSection">홈</div> 
             <div id="seat"  class="infoSection" onclick="changeSection('seat')" >좌석</div> 
             <div id="reservation" class="infoSection" onclick="changeSection('reservation')" >예약</div> 
         </div>
@@ -123,8 +125,108 @@
             </div>
         </div>
         <div id="seatSection">
-            예약 섹션
-
+            <div id="seatInfo">
+                <img src="../../whyting/static/images/seatImage.jpeg">
+                <div>
+                    <div>창가 좌석</div>
+                    <p>예쁜 거리를 볼 수 있는 좌석입니다. <br>
+                        날씨가 좋은 날에는 창문으로 들어오는 햇빛과 함깨 디저트를 즐기실 수 있습니다.
+                    </p>
+                    <p> 1번 - 5번 <br> 2인석/3인석</p>
+            </div>
+            </div>
+            <div id="seatInfo">
+                <img src="../../whyting/static/images/many_people_seat.jpeg">
+                <div>
+                    <div>단체석</div>
+                    <p>모임이나 회의를 위해 많은 분들이 앉으실 수 있는 좌석입니다. 바로 위에 잔잔한 조명이 있어 예쁜
+                        사진도 많이 찍어가실 수 있습니다.
+                    </p>
+                    <p> 6번 - 11번<br>6인석</p>
+            </div>
+            </div>
+            <div id="seatInfo" style="margin-bottom:3%">
+                <img src="../../whyting/static/images/couple_seat.webp">
+                <div>
+                    <div>커플석</div>
+                    <p>2명을 위한 좌석으로 일반적인 카페 좌석입니다. 
+                        다양한 2인용 좌석들이 존재하기 때문에 예약을 하실 때에는 커플석을 예약하시고
+                        오셔서 좌석을 고르시면 됩니다.
+                    </p>
+                    <p>12번 - 21번 <br> 2인석 X 5</p>
+                    
+            </div>
+            </div>
+            <div id="moreView" style="margin-bottom:2%">
+                좌석 더보기 +
+            </div>
+        </div>
+        
+    </div>
+    <div id="reserve">
+        <div id="reserveOptions">
+            <div style="margin-left:15%;font-size:20px;padding-bottom:4%;display:inline-block" >좌석</div>
+            <img style="width:20px;height:20px;float:right;margin-right:2%;cursor:pointer;" onclick="detail('seat')" src="../../whyting/static/images/bottom_arrow.png">
+        </div>
+        <div id="detailSeat">
+            <table id="seatTable">
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>10</td>
+                  <td>11</td>
+                  <td>12</td>
+                </tr>
+              </table>
+        </div>
+        <div id="reserveOptions">
+            <div style="margin-left:15%;font-size:20px;padding-bottom:4%;display:inline-block" >날짜</div>
+            <img style="width:20px;height:20px;float:right;margin-right:2%;cursor:pointer;" onclick="detail('date')" src="../../whyting/static/images/bottom_arrow.png">
+        </div>
+        <div id="detailDate">
+            <div id="calendar"></div>
+        </div>
+        <div id="reserveOptions">
+            <div style="margin-left:15%;font-size:20px;padding-bottom:4%;display:inline-block" >시간 선택</div>
+            <img style="width:20px;height:20px;float:right;margin-right:2%;cursor:pointer;" onclick="detail('time')" src="../../whyting/static/images/bottom_arrow.png">
+        </div>
+        <div id="detailTime">
+            <div>
+                <div>오전</div>
+                <input type="button" id="timeBtn" value="10:00">
+                <input type="button" id="timeBtn" value="11:00">
+            </div>
+             <div>
+                <div>오후</div>
+                <input type="button" id="timeBtn" value="1:00">
+                <input type="button"id="timeBtn" value="2:00">
+                <input type="button" id="timeBtn" value="3:00">
+                <input type="button"id="timeBtn" value="4:00">
+                <input type="button" id="timeBtn" value="5:00">
+                <input type="button"id="timeBtn" value="6:00">
+                <input type="button"id="timeBtn" value="7:00">
+            </div>
+        </div>
+        <div id="reserveOptions">
+            <div style="margin-left:15%;font-size:20px;padding-bottom:4%;display:inline-block" >인원</div>
+            <img style="width:20px;height:20px;float:right;margin-right:2%;cursor:pointer;"  onclick="detail('person')" src="../../whyting/static/images/bottom_arrow.png">
+        </div>
+        <div id="detailPeople" style="width:400px;height:100px;text-align: center;">
+            <div style="display:inline-block;margin-left:20%">인원을 선택하세요.</div> <input style="float:right" type="value" placeholder="인원을 입력해주세요">
+        </div>
+        <div style="text-align: center">
+            <input type="submit" id="reserveSubmit" value="예약"/>
         </div>
     </div>
 </section>
@@ -156,8 +258,6 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-var list_name = document.getElementById("name").innerText.split(',');
-var list_address = document.getElementById("address").innerText.split(',');
 
 // 장소 검색 객체를 생성합니다
 var ps = new kakao.maps.services.Places(); 
@@ -165,9 +265,41 @@ var ps = new kakao.maps.services.Places();
 // 키워드로 장소를 검색합니다
 searchPlaces();
 
-// 가개 마커 찍는거
-var geocoder = new kakao.maps.services.Geocoder();
 
+
+function detail(order){
+    console.log(order)
+    if(order === 'seat'){
+        const detailSeat = document.getElementById('detailSeat');
+        if( detailSeat.style.display==='none'){
+            detailSeat.style.display='block'
+        }else{
+            detailSeat.style.display='none'
+        }
+        
+    }else if(order==='date'){
+        const detailDate = document.getElementById('detailDate');
+        if( detailDate.style.display==='none'){
+            detailDate.style.display='block'
+        }else{
+            detailDate.style.display='none'
+        }
+    }else if(order==='person'){
+        const detailPeople = document.getElementById('detailPeople');
+        if( detailPeople.style.display==='none'){
+            detailPeople.style.display='block'
+        }else{
+            detailPeople.style.display='none'
+        }
+    }else{
+        const detailTime = document.getElementById('detailTime');
+        if( detailTime.style.display==='none'){
+            detailTime.style.display='block'
+        }else{
+            detailTime.style.display='none'
+        }
+    }
+}
 
 // 키워드 검색을 요청하는 함수입니다
 function  searchPlaces() {
@@ -200,33 +332,99 @@ function placesSearchCB (data, status, pagination) {
         map.setBounds(bounds);
     } 
 }
+// 가개 마커 찍는거
+var geocoder = new kakao.maps.services.Geocoder();
 // 주소로 좌표를 검색합니다
-for(var i=0; i<list_address.length; i++){
-    var address = list_address[i]
-    geocoder.addressSearch(address, function(result, status) {
-
-    // 정상적으로 검색이 완료됐으면 
-     if (status === kakao.maps.services.Status.OK) {
-
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-        // 결과값으로 받은 위치를 마커로 표시합니다
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: coords
-        });
-
-        // 인포윈도우로 장소에 대한 설명을 표시합니다
-        var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+ list_name[i] + '</div>'
-        });
-        infowindow.open(map, marker);
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        //map.setCenter(coords);
-        } 
+geocoder.addressSearch('동소문동2가 11', function(result, status) {
+// 정상적으로 검색이 완료됐으면 
+if (status === kakao.maps.services.Status.OK) {
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: coords
     });
-}
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">카페(2)</div>'
+    });
+    infowindow.open(map, marker);
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    //map.setCenter(coords);
+    } 
+});
+
+geocoder.addressSearch('삼선동1가 13-4 1층', function(result, status) {
+
+// 정상적으로 검색이 완료됐으면 
+ if (status === kakao.maps.services.Status.OK) {
+
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: coords
+    });
+
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">음식점(2)</div>'
+    });
+    infowindow.open(map, marker);
+
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    //map.setCenter(coords);
+    } 
+});
+geocoder.addressSearch('동소문동1가 17', function(result, status) {
+
+// 정상적으로 검색이 완료됐으면 
+ if (status === kakao.maps.services.Status.OK) {
+
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: coords
+    });
+
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">카페(1)</div>'
+    });
+    infowindow.open(map, marker);
+
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    //map.setCenter(coords);
+    } 
+});
+
+geocoder.addressSearch('동소문동1가 48', function(result, status) {
+
+// 정상적으로 검색이 완료됐으면 
+ if (status === kakao.maps.services.Status.OK) {
+
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: coords
+    });
+
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">음식점(1)</div>'
+    });
+    infowindow.open(map, marker);
+
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    //map.setCenter(coords);
+    } 
+});
+
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(place) {
     
@@ -257,7 +455,11 @@ kakao.maps.event.addListener(map,'drag',function(){
 
 function markChange(){
     const markImg = document.getElementById("bookMark");
-
+    if(markImg.src === "http://127.0.0.1:5501/mutsa_hackathon/whyting/static/images/empty_book_mark.png"){
+        markImg.src = "http://127.0.0.1:5501/mutsa_hackathon/whyting/static/images/full_book_mark.jpg"
+    }else{
+        markImg.src = "http://127.0.0.1:5501/mutsa_hackathon/whyting/static/images/empty_book_mark.png"
+    }
 }
 
 function changeSection(sectionName){
@@ -266,22 +468,28 @@ function changeSection(sectionName){
     const reservation  = document.getElementById('reservation');
     const homeSection =document.getElementById('homeSection');
     const seatSection = document.getElementById('seatSection');
+    const reserveSection = document.getElementById('reserve')
     if(sectionName === 'home'){
         home.style.backgroundColor="#FFEFD9"
         seat.style.backgroundColor="white"
         reservation.style.backgroundColor="white"
         homeSection.style.display='block'
         seatSection.style.display='none'
+        reserveSection.style.display='none'
     }else if(sectionName === 'seat'){
         seat.style.backgroundColor="#FFEFD9"
         home.style.backgroundColor="white"
         reservation.style.backgroundColor="white"
         homeSection.style.display='none'
         seatSection.style.display='block'
+        reserveSection.style.display='none'
     }else{
         reservation.style.backgroundColor="#FFEFD9"
         seat.style.backgroundColor="white"
         home.style.backgroundColor="white"
+        homeSection.style.display='none'
+        reserveSection.style.display='block'
+        seatSection.style.display='none'
     }
 }
 

@@ -70,6 +70,66 @@ body{
     height:40px;
     border-bottom:2px dotted gray;
 }
+#seatInfo{
+    border-bottom: 2px dotted gray;
+    margin-left:5%;
+    padding:3% 0%;
+    
+}
+#seatInfo img{
+    width:170px;
+    height:170px;
+    display:inline-block;
+    vertical-align: top;
+    margin-right:5%;
+}
+#seatTable{
+    text-align: center;
+    border-spacing:25px;
+    margin-left:10px;
+}
+#seatTable td{
+    background-color: white;
+    width:74px;
+    height:44px;
+    cursor:pointer;
+}
+#detailSeat{
+    display:none;
+    background-color: #d9d9d9;
+    width:410px;
+    height: 250px;
+    margin:auto auto;
+    align-items: center;
+}
+#detailDate{
+    display:none;
+}
+#detailPeople{
+    display:none;
+}
+#reserveOptions{
+    border-bottom:1px solid lightgray;
+    margin-top:15%;
+    margin-bottom:10%;
+    margin-left:10%;
+    margin-right:10%;
+}
+#seatInfo div{
+    display:inline-block;
+    width:55%;
+}
+#seatInfo div div{
+    display:inline-block;
+    font-size: 20px;
+}
+
+#seatInfo p{
+    display:inline-block;
+    align-items: center;
+    color:#424242;
+    font-size:15px;
+}
 #reviews{
     font-size: 20px;
     font-weight:400;
@@ -77,9 +137,7 @@ body{
     text-align: center;
     margin:3% 5%;
 }
-#seatSection{
-    display:none;
-}
+
 #menu{
     margin-left:13%;
     margin-top:4%;
@@ -210,6 +268,28 @@ ul{
     border-radius: 10px;
 }
 
+#detailTime{
+  margin-left:15%;
+  display:none;
+}
+#timeBtn{
+  margin-top:4%;
+  margin-bottom: 2%;
+  width:54px;
+  height:24px;
+  margin-right:16px;
+  font-weight: 400;
+}
+#reserveSubmit{
+  weight:500; 
+  font-size:20px;
+  color:white;
+  background-color: #FCA013;
+  width:410px;
+  height:50px;
+}
+
+
 
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
     .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
@@ -247,3 +327,6 @@ ul{
     #pagination {margin:10px auto;text-align: center;}
     #pagination a {display:inline-block;margin-right:10px;}
     #pagination .on {font-weight: bold; cursor: default;color:#777;}
+
+
+

@@ -10,8 +10,40 @@
 </head>
 <body>
     <section id="secTop">
-        <a id="btnProfile" href="{% url 'login'%}"><img src="../../whyting/static/images/profile.png"></a>
-        <button id="btnMenu"><img src="../../whyting/static/images/menu_icon.png"></button>
+        <!--<a id="btnProfile" href="{% url 'login'%}"><img src="../../whyting/static/images/profile.png"></a>-->
+        <div id="btnProfile"><img src="../../whyting/static/images/profile.png"></div>
+        <a id="btnMenu" href="{% url 'login'%}"><img src="../../whyting/static/images/menu_icon.png"></a>
+    </section>
+    <section>
+        <div class="modal">
+            <div class="modal_body">
+                <div id="divLogin">
+                    <!-- 로그인 html -->
+                </div>
+            </div>
+        </div>
+        <script>
+            const modal = document.querySelector('.modal');
+            const btnOpenPopup = document.querySelector('#btnProfile');
+            btnOpenPopup.addEventListener('click', () => {
+                modal.style.display = 'block';
+            });
+            modal.addEventListener("click", e => {
+                const evTarget = e.target
+                if(evTarget.classList.contains("modal")) {
+                    modal.style.display = "none"
+                }
+            })
+
+            async function fetchHtmlAsText() {
+                return await (await fetch("{% url 'login'%}")).text();
+            }
+
+            async function importPage(target) {
+                document.querySelector('#' + target).innerHTML = await fetchHtmlAsText();
+            }
+            importPage('divLogin')
+        </script>
     </section>
     <section>
         <div id="divLogo"><img src="../../whyting/static/images/logo_font.png"></div>
