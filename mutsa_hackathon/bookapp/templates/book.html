@@ -1,0 +1,10 @@
+<form
+    id="contents"
+    name="contents"
+    method="post"
+    action="{% url 'reservation' %}"
+>
+    {% csrf_token %} seat : <input name="seat" type="text" /> time :
+    <input name="time" type="text" />
+    <button type="submit">전송</button>
+</form>
