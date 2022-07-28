@@ -1,5 +1,5 @@
 from django.forms import modelform_factory
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .forms import ImageForm, StoreForm
 from .models import Store, Image
 
@@ -10,6 +10,10 @@ def map(request):
     all_store = Store.objects.all()
     keyword = request.POST.get('keyword')
     return render(request, "map.html", {'all_store': all_store, 'keyword':keyword})
+
+def detail(request, store_id):
+    store = get_object_or_404(Store, pk = store_id)
+    return render(request, 'detail.html', {'store':store})
 
 # Seat, Time 객체 생성
 

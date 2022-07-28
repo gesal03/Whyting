@@ -11,6 +11,7 @@ urlpatterns = [
     
     path('', views.home, name='home'),
     path('map', views.map, name="map"),
+    path('detail/<int:store_id>', views.detail, name="detail"),
     path('main',accounts_views.signUp, name="main"),
 
 
