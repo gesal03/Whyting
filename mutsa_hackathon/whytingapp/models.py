@@ -10,8 +10,8 @@ class Store(models.Model):
     number = models.CharField(max_length=30, verbose_name='가게 전화번호')
     waiting_state = models.IntegerField(default=1)
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
-    start_time=models.IntegerField(null=True)
-    end_time=models.IntegerField(null=True)
+    start_time=models.IntegerField(blank=True, null=True)
+    end_time=models.IntegerField(blank=True, null=True)
     def __str__(self):
         return self.name
 

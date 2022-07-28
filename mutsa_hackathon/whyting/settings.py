@@ -109,7 +109,8 @@ USE_TZ = True
 STATIC_URL = '/whyting/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "whyting/static",
+    BASE_DIR / "whyting" / "static",
+
    
 ]
 

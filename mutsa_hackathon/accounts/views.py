@@ -37,9 +37,10 @@ def register_customer(request):
             return redirect('home')
     return render(request, 'register_customer.html') 
 
-
-
 def login(request):
+    return render(request, 'login.html')
+
+def login2(request):
     if request.method == 'POST':
         
         userid = request.POST['username']
