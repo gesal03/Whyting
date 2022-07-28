@@ -22,5 +22,5 @@ urlpatterns = [
     path('register_customer/', accounts_views.register_customer, name='register_customer'),
 
     # reservation
-    path('reservation/', book_views.book, name='book')
+    path('reservation/<int:store_id>', book_views.book, name='book')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
